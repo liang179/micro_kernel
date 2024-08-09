@@ -4,6 +4,8 @@ wget https://busybox.net/downloads/busybox-1.36.1.tar.bz2
 tar -jxf busybox-1.36.1.tar.bz2
 cd busybox-1.36.1
 make defconfig
+sed -i "s/# CONFIG_STATIC is not set/CONFIG_STATIC=y/g" .config
+sed -n "/CONFIG_STATIC=/p" .config
 make -j $(nproc)
 make install
 
