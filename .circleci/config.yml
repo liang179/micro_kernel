@@ -18,13 +18,14 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
-      - run: sudo apt update && sudo apt install flex bc bison
+      - run: sudo apt update && sudo apt install flex bc bison libelf-dev
       - run: wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.3.tar.xz
       - run: tar -xf linux-6.10.3.tar.xz
       - run: cd linux-6.10.3 && make defconfig
       - run: cd linux-6.10.3 && make -j $(nproc) bzImage
       - store_artifacts:
           path: linux-6.10.3/arch/x86_64/boot/bzImage
+          destination: bzImage
       
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
