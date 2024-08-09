@@ -20,6 +20,7 @@ jobs:
       - checkout
       - run: wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.3.tar.xz
       - run: tar -xf linux-6.10.3.tar.xz
+      - run: sudo apt install felx bc
       - run: cd linux-6.10.3 && make defconfig
       - run: cd linux-6.10.3 && make -j $(nproc) bzImage
       
