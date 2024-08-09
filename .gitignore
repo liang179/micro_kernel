@@ -1,0 +1,9 @@
+linux-*
+/linux-*
+bzImage
+
+busybox-*
+/busybox-*
+
+initramfs*
+/initramfs
