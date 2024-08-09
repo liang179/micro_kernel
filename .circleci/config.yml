@@ -19,9 +19,9 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run: wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.3.tar.xz
-      - run: tar -xvf linux-6.10.3.tar.xz
+      - run: tar -xf linux-6.10.3.tar.xz
       - run: cd linux-6.10.3
-      - run: make defconfig
+      - run: make x86_64_defconfig
       - run: make -j $(nproc)
       
 # Orchestrate jobs using workflows
